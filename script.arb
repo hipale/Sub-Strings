@@ -1,0 +1,13 @@
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+def substrings(word, dictionary)
+dictionary.reduce(Hash.new(0)) do |sum, element|
+  if word == element
+    sum[element] += 1
+  end
+  sum
+end
+end
+
+
+
+puts substrings("below, below", dictionary)
