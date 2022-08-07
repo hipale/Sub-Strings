@@ -1,13 +1,33 @@
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-def substrings(word, dictionary)
-dictionary.reduce(Hash.new(0)) do |sum, element|
-  if word == element
-    sum[element] += 1
+
+def substrings(sentence)
+i = 0
+word = sentence.split("")
+words_create_loop(word, i)
+end
+
+def words_create_loop(word, i)
+  
+  x = 1
+while i < word.length
+  all_words = word[i]
+  sum_results(all_words)
+  while x < word.length
+    all_words.concat(word[x])
+    sum_results(all_words)
+    x += 1
   end
-  sum
+  all_words = word[i]
+  i += 1
+  x = 1 * i + 1
 end
 end
 
-
-
-puts substrings("below, below", dictionary)
+def sum_results(all_words)
+  puts all_words
+  dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+  dictionary.reduce(Hash.new(0)) do |sum, element|
+    if all_words == element then sum[element] += 1 end
+      puts sum
+  end
+end
+puts substrings("it")
