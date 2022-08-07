@@ -13,6 +13,8 @@ while i < word.length
   selecte_words_arr.push(all_words)
   while x < word.length
     all_words.concat(word[x]) 
+    puts all_words
+    selecte_words_arr.push(all_words)
     x += 1
   end
   i += 1
@@ -22,12 +24,13 @@ sum_results(selecte_words_arr)
 end
 
 def sum_results(selecte_words_arr)
-  
   dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
   for selected_word in selecte_words_arr
   dictionary.reduce(Hash.new(0)) do |sum, element|
- if element == selected_word then sum[element] += 1 end
-    end
+  if selected_word == element then sum[element] += 1 
+  end
+ sum
+end
 end
 end 
-substrings("below. below")
+puts substrings("low i")
