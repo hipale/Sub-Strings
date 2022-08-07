@@ -6,28 +6,28 @@ words_create_loop(word, i)
 end
 
 def words_create_loop(word, i)
-  
+  selecte_words_arr = [word[0][0]]
   x = 1
 while i < word.length
   all_words = word[i]
-  sum_results(all_words)
+  selecte_words_arr.push(all_words)
   while x < word.length
-    all_words.concat(word[x])
-    sum_results(all_words)
+    all_words.concat(word[x]) 
     x += 1
   end
-  all_words = word[i]
   i += 1
   x = 1 * i + 1
 end
+sum_results(selecte_words_arr)
 end
 
-def sum_results(all_words)
-  puts all_words
+def sum_results(selecte_words_arr)
+  
   dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+  for selected_word in selecte_words_arr
   dictionary.reduce(Hash.new(0)) do |sum, element|
-    if all_words == element then sum[element] += 1 end
-      puts sum
-  end
+ if element == selected_word then sum[element] += 1 end
+    end
 end
-puts substrings("it")
+end 
+substrings("below. below")
