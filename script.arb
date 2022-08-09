@@ -1,32 +1,18 @@
-
 def substrings(sentence)
-i = 1
-x = 0
-word = sentence.downcase().split("")
+i = 1; x = 0; word = sentence.downcase().split("")
 while x < word.length
-  all_words = word[x]
-  find_element(all_words)
+  all_words = word[x]; find_element(all_words)
   while i < word.length
-   all_words.concat(word[i]) 
-    find_element(all_words)
-    i += 1
+   all_words.concat(word[i]); find_element(all_words); i += 1
   end
-  x += 1
-  i = x + 1
-end
-end
+  x += 1; i = x + 1
+end; end
 
 def find_element(all_words)
   dictionary = ["below", "be","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
   for element in dictionary
-    if element == all_words then 
-      dictionary.reduce(Hash.new(0)) do |sum|
-        sum[element] += 1
-        puts sum
-        return sum
-      end
-    end
-  end
-end
+    if element == all_words then dictionary.reduce(Hash.new(0)) do |sum|
+        sum[all_words] += 1; puts sum; return sum
+end; end; end; end
 
-puts substrings("below")
+substrings("bebelow")
