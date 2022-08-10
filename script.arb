@@ -1,10 +1,11 @@
 def substrings(sentence)
   hash = {}
   dictionary = ["below", "be","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-  dictionary.each do |key|
-    count = sentence.scan(key).length
-    hash[key] = count unless count == 0
+  dictionary.each do |word|
+    all_words = sentence.scan(word)
+    if all_words.length != 0 then hash[word] = all_words.length end
   end
   hash
 end
+
 puts substrings("bebelow")
